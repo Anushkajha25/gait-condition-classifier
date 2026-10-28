@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gaitcond"
+version = "0.2.0"
+description = "Walking-condition classification (normal / bag / coat) on CASIA-B silhouettes with frozen CNN backbones"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Anushka Jha" }, { name = "Sanidhya Anand" }]
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scikit-learn>=1.3",
+    "matplotlib>=3.7",
+    "pyyaml>=6.0",
+    "tqdm>=4.65",
+]
+
+[project.optional-dependencies]
+# TensorFlow is optional so the data / evaluation code can be installed and tested without it.
+# Colab already ships TensorFlow; elsewhere install with `pip install -e ".[tf]"`.
+tf = ["tensorflow>=2.15"]
+dev = ["pytest>=7.4", "pillow", "ruff>=0.4"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "B"]

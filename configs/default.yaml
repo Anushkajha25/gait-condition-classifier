@@ -1,0 +1,33 @@
+# Default experiment: ResNet101 + EfficientNetB2 features, subject-disjoint split.
+# Any key can be overridden from the command line, e.g. --backbones vgg16 inceptionv3
+
+data_root: data/CASIA-B          # folder containing 001/, 002/, ... 124/
+features_dir: features            # where extract_features.py writes <backbone>.npy
+output_dir: results/resnet_effnet_subject
+
+# Feature extraction
+extract_backbones: [resnet101, efficientnetb2, vgg16, inceptionv3]
+image_size: 224
+extract_batch_size: 128
+frame_stride: 2                   # keep every 2nd frame; neighbouring frames are near-identical
+
+# Experiment
+backbones: [resnet101, efficientnetb2]
+pca_components: 256               # null to skip PCA (standardise only)
+pca_fit_samples: 100000           # PCA is fitted on a sample of TRAIN rows only
+models: [logreg, linear, mlp, residual_mlp]
+seed: 42
+
+split:
+  kind: subject                   # subject (no leakage) | frame (reproduces the original notebooks)
+  train_subjects: [1, 62]         # inclusive ranges
+  val_subjects: [63, 74]
+  test_subjects: [75, 124]
+  # used only when kind: frame
+  test_size: 0.2
+  val_size: 0.1
+
+train:
+  epochs: 40
+  batch_size: 256
+  patience: 6
