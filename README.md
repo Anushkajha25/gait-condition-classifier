@@ -1,4 +1,4 @@
-# Gait Condition Classification on CASIA-B
+# gait-condition-classifier
 
 Classify the **walking condition** in a gait silhouette (normal walk, carrying a bag, or wearing
 a coat) using frozen ImageNet CNN features, PCA and a small classifier head. This repository
@@ -108,8 +108,8 @@ the leak.
 ### 1. Install
 
 ```bash
-git clone https://github.com/Anushkajha25/gait-condition-classification.git
-cd gait-condition-classification
+git clone https://github.com/Anushkajha25/gait-condition-classifier.git
+cd gait-condition-classifier
 pip install -e ".[tf,dev]"      # drop "tf" to run only the scikit-learn parts and tests
 ```
 

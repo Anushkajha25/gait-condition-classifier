@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gaitcond"
+name = "gait-condition-classifier"
 version = "0.2.0"
 description = "Walking-condition classification (normal / bag / coat) on CASIA-B silhouettes with frozen CNN backbones"
 readme = "README.md"
