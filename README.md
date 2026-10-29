@@ -1,4 +1,6 @@
-# gait-condition-classifier
+# Gait Condition Classification on CASIA-B
+
+[![CI](https://github.com/Anushkajha25/gait-condition-classifier/actions/workflows/ci.yml/badge.svg)](https://github.com/Anushkajha25/gait-condition-classifier/actions/workflows/ci.yml)
 
 Classify the **walking condition** in a gait silhouette (normal walk, carrying a bag, or wearing
 a coat) using frozen ImageNet CNN features, PCA and a small classifier head. This repository
@@ -180,6 +182,9 @@ tests/
 
 B.Tech Computer Science project, SRM Institute of Science and Technology, 2025.
 Supervised by Dr. Ferni Ukrit M.
+
+A paper based on the original work is under review. The numbers in it come from the original
+frame-split notebooks, not from the subject-disjoint pipeline in this repository.
 
 ## License
 
